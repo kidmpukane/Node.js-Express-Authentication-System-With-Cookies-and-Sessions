@@ -17,7 +17,7 @@ const fileFilter = (req, file, cb) => {
 if(file.mimetype.startsWith("image")){
     cb(null, true);
 }else{
-  cb("Unsuported image file", false);
+  cb("Unsupported image file, try again", false);
 }
 }
 const uploads = multer({storage, fileFilter: fileFilter})
@@ -26,7 +26,7 @@ router.post("/create-user", validateUserSignUp, userValidation,createUser);
 router.post("/sign-in", validateUserSignIn, userValidation, userSignIn);
 router.post("/upload-profile", isAuth, uploads.single("profile"), async (req, res) =>{
   const {user} = req
-    if(!user) return res.status(401).json({success: false, message: "Unauthorise access"});
+    if(!user) return res.status(401).json({success: false, message: "Unauthorized access"});
 
     try {
       
@@ -38,8 +38,8 @@ router.post("/upload-profile", isAuth, uploads.single("profile"), async (req, re
     await User.findByIdAndUpdate(user._id, {avatar})
       res.status(201).json({success: true, message: "Profile picture updated"})
     } catch (error) {
-      res.status(500).json({success: false, message: "Oopsy server error profile picture not updated"})
-      console.log("Error while uploading profile picture", error.message);
+      res.status(500).json({success: false, message: "Opsy server error profile picture not updated, please try again"})
+      console.log("Error while uploading profile picture, please try again", error.message);
 
     }
 

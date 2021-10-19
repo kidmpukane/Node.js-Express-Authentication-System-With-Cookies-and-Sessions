@@ -7,7 +7,7 @@ exports.createUser = async(req, res) => {
     if(!isNewUser)
     return res.json({
         success: false,
-        messaage: "This email is in use try login or another"
+        message: "This email is in use try to login or try using another"
     });    
     const user =  await User({
         fullname,
