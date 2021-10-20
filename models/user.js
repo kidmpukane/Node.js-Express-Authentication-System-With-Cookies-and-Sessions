@@ -52,7 +52,7 @@ userSchema.statics.isThisEmailInUse = async function(email){
         return true;  
     
     } catch (error) {    
-        console.log("error inside isThisEmailInUse", error.message)
+        console.log("error inside this email is in use", error.message)
           return false;
     }
 };
