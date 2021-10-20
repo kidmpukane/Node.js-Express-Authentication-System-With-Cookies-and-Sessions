@@ -1,4 +1,4 @@
-<h1>The Foocken Register Bruv</h1>
+<h1>Register</h1>
 <form action="/create-user" method="POST">
   <div>
     <label for="fullname">Name</label>
@@ -18,4 +18,10 @@
   </div>
   <button type="submit">Confirm</button>
 </form>
-<a href="/login">Login</a>
+<button id="login-user-redirect">Back To Sign In</button>
+<script>
+    document.querySelector("#login-user-redirect")
+    .addEventListener("click", () => {
+        window.location.href = "/sign-in"
+    })
+</script>

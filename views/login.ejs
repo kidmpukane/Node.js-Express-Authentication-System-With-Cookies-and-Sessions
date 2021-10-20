@@ -10,4 +10,10 @@
   </div>
   <button type="submit">Login</button>
 </form>
-<a href="/register">Register</a>
+<button id="register-user-redirect">Back To Sign In</button>
+<script>
+    document.querySelector("#register-user-redirect")
+    .addEventListener("click", () => {
+        window.location.href = "/create-user"
+    })
+</script>
