@@ -3,6 +3,7 @@ require("dotenv").config();
 require("./models/dataBase");
 const userRouter = require("./routes/user");
 
+const router = express.Router();
 const User = require("./models/user");
 
 const app = express();
@@ -18,6 +19,7 @@ app.get("/create-user", (req, res) => {
 
 });
 
+
 app.get("/sign-in", (req, res) => {
     res.render("login.ejs");
 
@@ -27,6 +29,7 @@ app.get("/upload-profile", (req, res) => {
     res.render("profile.ejs");
 
 });
+
 
 
 app.listen(6660, ()=> {

@@ -14,9 +14,8 @@ exports.isAuth = async (req, res, next) => {
         const user = await User.findById(decode.userId);
         if(!user) {
             return res.json({
-                success: false, message: "Unauthorized Access"})
+                success: false, message: "Unauthorized Access"})       
         }
-
         req.user = user
         next();
            

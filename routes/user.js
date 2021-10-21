@@ -38,7 +38,7 @@ router.post("/upload-profile", isAuth, uploads.single("profile"), async (req, re
     await User.findByIdAndUpdate(user._id, {avatar})
       res.status(201).json({success: true, message: "Profile picture updated"})
     } catch (error) {
-      res.status(500).json({success: false, message: "Opsy server error profile picture not updated, please try again"})
+      res.status(500).json({success: false, message: "Server error profile picture not updated, please try again"})
       console.log("Error while uploading profile picture, please try again", error.message);
 
     }
