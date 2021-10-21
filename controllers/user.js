@@ -31,9 +31,15 @@ exports.userSignIn = async (req, res) => {
        success: false, message:"Email and password do not match any existing user"
    })
 
-   jwt.sign({userId: user._id}, process.env.JWT_SECRET, {
-       expiresIn: "1d"
-   })
+   const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    expiresIn: '1d',
+  });
    
-   res.json({success: true, user});
+   const userInfo = {
+    fullname: user.fullname,
+    email: user.email,
+    avatar: user.avatar ? user.avatar : '',
+  };
+
+  res.json({ success: true, user: userInfo, token });
 };
