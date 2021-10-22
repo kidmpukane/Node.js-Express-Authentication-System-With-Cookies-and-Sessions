@@ -15,18 +15,18 @@ app.use(userRouter);
 
 
 app.get("/create-user", (req, res) => {
-    res.render("register_form.ejs");
+    res.render("create-user.ejs");
 
 });
 
 
 app.get("/sign-in", (req, res) => {
-    res.render("login.ejs");
+    res.render("sign-in.ejs");
 
 });
 
 app.get("/upload-profile", (req, res) => {
-    res.render("profile.ejs");
+    res.render("upload-profile.ejs");
 
 });
 
