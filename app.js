@@ -1,7 +1,8 @@
 const express = require("express");
+const userRouter = require("./routes/user");
 require("dotenv").config();
 require("./models/dataBase");
-const userRouter = require("./routes/user");
+
 
 const router = express.Router();
 const User = require("./models/user");

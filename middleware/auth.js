@@ -1,4 +1,5 @@
 //Authentication App
+const { cookie } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
@@ -9,7 +10,7 @@ exports.isAuth = async (req, res, next) => {
        
        try {
 
-        const decode = jwt.verify(createToken, process.env.JWT_SECRET)
+        const decode = jwt-cookie.verify(createToken, process.env.JWT_SECRET)
    
         const user = await User.findById(decode.userId);
         if(!user) {

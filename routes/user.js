@@ -43,8 +43,7 @@ router.post("/upload-profile", isAuth, uploads.single("profile"), async (req, re
 
     }
 
-
-
 });
+
 
   module.exports = router;
