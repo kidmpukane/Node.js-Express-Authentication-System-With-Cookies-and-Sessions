@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Node File Uploads</title>
+</head>
+<body>
+  <div class="container">
+    <h1>File Upload</h1>
+    <form action="/upload-product" method="POST" enctype="multipart/form-data">
+      <div class="file-field input-field">
+        <div class="btn grey">
+          <span>File</span>
+          <input name="productImage" type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>      
+    </div>
+      <label for="productName">Product Name</label>
+      <input type="text" id="productName" name="productName" required>
+      </div>
+      <div>
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" required>
+      </div>
+      <label for="productName">Description</label>
+      <input type="text" id="productDescription" name="productDescription" required>
+      </div>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

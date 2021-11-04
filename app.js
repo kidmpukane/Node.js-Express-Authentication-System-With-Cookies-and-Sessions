@@ -1,11 +1,14 @@
 const express = require("express");
+const router = express.Router();
+const User = require("./models/user");
 const userRouter = require("./routes/user");
+const productsRouter = require("./routes/productsRouter");
+
 require("dotenv").config();
 require("./models/dataBase");
 
 
-const router = express.Router();
-const User = require("./models/user");
+
 
 const app = express();
 app.set("view-engine", "ejs")
@@ -13,6 +16,7 @@ app.use(express.urlencoded({ extended: false}))
 
 app.use(express.json());
 app.use(userRouter);
+app.use(productsRouter);
 
 
 app.get("/create-user", (req, res) => {
