@@ -1,5 +1,6 @@
 const express = require("express");
 const multer  = require("multer");
+const path= require('path')
 const ProductSchema = require("../models/products");
 const upload = multer({ dest: "uploads/" });
 const { uploadFile, getFileStream } = require("../controllers/productsController");
@@ -25,7 +26,7 @@ router.post("/upload-product", upload.single("productImage"), async(req, res) =>
       productName: req.body.productName,
       price: req.body.price,
       productDescription: req.body.productDescription,
-      productImage: data.Location
+      productImage: file.filename
   });
   postProduct.save()
    .then((result) => {
@@ -38,5 +39,6 @@ router.post("/upload-product", upload.single("productImage"), async(req, res) =>
       console.log(err)
    });
 });
+
 
 module.exports = router;
